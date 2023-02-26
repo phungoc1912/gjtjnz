@@ -1,0 +1,19 @@
+from lunarcalendar import Converter, Solar, Lunar
+
+# Nhập ngày dương lịch
+solar_date = Solar(2023, 3, 2)  # Ví dụ: Ngày 2/3/2023
+
+# Chuyển đổi sang ngày âm lịch
+lunar_date = Converter.solar2lunar(solar_date)
+
+# Lấy thông tin tiết khí
+solar_term = Converter.getSolarTerm(solar_date.year, solar_date.month, solar_date.day)
+
+# Hiển thị các thông số
+print(f"Ngày âm lịch: {lunar_date.day}")
+print(f"Tháng âm lịch: {lunar_date.month}")
+print(f"Năm âm lịch: {lunar_date.year}")
+print(f"Can chi ngày: {Lunar(lunar_date.year, lunar_date.month, lunar_date.day).can_hour}")
+print(f"Can chi tháng: {Lunar(lunar_date.year, lunar_date.month, lunar_date.day).can_month}")
+print(f"Giờ hoàng đạo: {Lunar(lunar_date.year, lunar_date.month, lunar_date.day).jieqi_hour}")
+print(f"Tiết khí: {solar_term}")
